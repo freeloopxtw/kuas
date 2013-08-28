@@ -17,7 +17,8 @@ var ag201_go_next = 'function go_next(s1){thisform.sentvalue.value=s1;thisform.a
 var ag222_go_next = 'function go_next(s1,s2,s3){thisform.arg01.value=s1;thisform.arg02.value=s2;thisform.arg04.value=s3;thisform.action="ag064_print.jsp";thisform.submit()}';
 var ag300_send_onclick = 'function send_onclick(){thisform.action="ag300_02.jsp";thisform.target="bottom";thisform.submit();}';
 var ag300_reload = 'function reload(){thisform.action="";thisform.target="top";thisform.submit()}';
-var ag304_go_next = 'function go_next(s){thisform.arg.value=s;thisform.submit()}';
+//var ag304_go_next = 'function go_next(s){thisform.arg.value=s;thisform.submit()}';
+var ag304_go_next = 'function go_next(s1,s2,s3){if(typeof s2=="undefined"&&typeof s3=="undefined"){thisform.arg.value=s1;thisform.submit()}else{thisform.arg01.value=s1;thisform.arg02.value=s2;thisform.arg04.value=s3;thisform.action="ag064_print.jsp";thisform.submit()}}';
 var ag402_reload = 'function reload(s){thisform.action="ag402_01.jsp";thisform.submit()}';
 var ag402_qry = 'function qry(s){if(s=="Y"){if(thisform.emut_kind.value=="dgr"){if(thisform.etxt_list.value!="%"){thisform.action="ag402_02_1.jsp"}else{thisform.action="ag402_02_2.jsp"}}else{thisform.action="ag402_02_3.jsp"}thisform.submit()}}';
 var ag450_reload = 'function reload(){thisform.action="ag450_01.jsp";thisform.target="top";thisform.submit()}';
@@ -46,7 +47,7 @@ add_function(ag201_go_next, 'ag201.jsp'); // 課程規劃表
 add_function(ag300_send_onclick, 'ag300'); // 開課課表 
 add_function(ag300_reload, 'ag300'); // 開課課表 
 add_function(ag304_go_next, 'ag304'); // 班級課表
-add_function(ag222_go_next, 'ag304'); // 班級課表-教學綱要
+//add_function(ag222_go_next, 'ag304'); // 班級課表-教學綱要
 add_function(ag402_reload, 'ag402'); // 班級人數
 add_function(ag402_qry, 'ag402'); // 班級人數
 
