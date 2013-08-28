@@ -9,6 +9,7 @@ http://userscripts.org/scripts/show/176759
 
 
 DO LIST:
+====
  * 教務資訊查詢：
  *  【學生】學籍資料        OK
  *  【學生】學期成績        OK, ag008, switch_yms
