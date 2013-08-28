@@ -24,7 +24,7 @@ var ag450_reload = 'function reload(){thisform.action="ag450_01.jsp";thisform.ta
 var ag450_go_qry = 'function go_qry(){svalue=[thisform.exditem.value,thisform.examdate.value,thisform.exd_prd.value,thisform.division.value,thisform.romkid.value].join("*$*");thisform.content.value=svalue;thisform.action="ag450_03.jsp";thisform.submit()}';
 
 
-function add_function(func, check_url=false) {
+function add_function(func, check_url) {
     if (check_url) {
         if (!~document.location.href.search(check_url)) {
             return 0;
