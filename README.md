@@ -75,11 +75,13 @@ DO LIST
     個人兵役申辦紀錄           NOT SURE
  
  * 總務資訊查詢:
+
     列印學雜費繳費單            Not in time
 
     學雜費繳費收據列印          Not in time
  
  * 教務登錄作業:
+
   【學生】個人通訊資料維護        Not in time
 
   【學生】銀行帳號登錄作業        No
@@ -87,6 +89,7 @@ DO LIST
   【系所】暑修開課意願調查作業    Not in time
   
  * 學務登錄作業:
+
    學生基本資料表                       !Half
 
    社員登錄作業                         No premission
@@ -117,20 +120,22 @@ DO LIST
    
   
  * 教務申請作業:
+
    休-復-退學暨畢業申請作業          OK, Original javascript
 
    研究生學位考試申請作業            NaN
 
-   學程資格申請                    OK, Original javascript
+   學程資格申請                      OK, Original javascript
 
  * 學務申請作業:
-   機車通行證申購                   OK
 
-   腳踏車通行證申購                 OK
+   機車通行證申購                    OK
+
+   腳踏車通行證申購                  OK
 
    停車證申請作業(施工中)            OK, Original javascirpt, but school testing now
 
-   學生公假請假作業                 NO, Can't use
+   學生公假請假作業                  NO, Can't use
 
    學生班級幹部證明書申請            NaN
 
@@ -142,14 +147,14 @@ DO LIST
 
    生活學習獎助金申請                OK, Original javascript
 
-   TA教學助理申請                   OK, Original javascript
+   TA教學助理申請                    OK, Original javascript
 
-   TA_通識中心專用教學助理申請        OK, Original javascript
+   TA_通識中心專用教學助理申請       OK, Original javascript
 
-   TA_共同科專用教學助理申請          OK, Original javascript
+   TA_共同科專用教學助理申請         OK, Original javascript
 
-   學生出差作業                     NOT SURE...
+   學生出差作業                      NOT SURE...
    
- * 卓越教學
- * 其它作業
- * 校友功能
+ * 卓越教學		OK
+ * 其它作業		OK
+ * 校友功能		OK
