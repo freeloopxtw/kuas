@@ -4,7 +4,7 @@
 // @description	    fix every vbscript and no need IE anymore.
 // @include         http://140.127.113.231/kuas/*
 // @include         http://140.127.113.231/kuas/system/*
-// @version         1.3.2
+// @version         1.4.0
 // @author          Louie Lu (grapherd at gmail dot com)
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
@@ -45,6 +45,8 @@ var ck002_go_print = 'function go_print(s){thisform.cba_district.value=s;thisfor
 var ck003_go_print = 'function go_print(s){thisform.cba_district.value=s;thisform.action="ck003_print.jsp";thisform.submit()}';
 
 
+console.log(document.location.href);
+
 function add_function(func, check_url, deubg) {
     if (check_url) {
         if (!~document.location.href.search(check_url)) {
@@ -71,31 +73,26 @@ if (~document.location.href.search('sys010_chang')) {
 }
 
 add_function(send_pwd, 'sys010_chang');
+add_function(change_pwd + relogin, 'f_head'); //更換密碼, 重新登入
 
-
-// Finish function
-add_function(change_pwd, 'f_head');
-add_function(relogin, 'f_head');
 add_function(of_display, 'f_left.jsp'); // 側邊欄
 add_function(ag222_switch_yms, 'ag008.jsp'); // 學期成績
-add_function(ag222_switch_yms, 'ag222.jsp'); // 個人課表
-add_function(ag222_go_next, 'ag222.jsp'); // 個人課表
+add_function(ag222_switch_yms + ag112_go_next, 'ag112_01.jsp'); // 開課資訊 
+add_function(ag222_switch_yms + ag222_go_next, 'ag222.jsp'); // 個人課表
 add_function(ag222_go_next, 'ag302'); // 教室課表
-add_function(ag112_go_next, 'ag112_01.jsp'); // 開課資訊
-add_function(ag222_switch_yms, 'ag112_01.jsp'); // 開課資訊 
 add_function(ag201_go_next, 'ag201.jsp'); // 課程規劃表
 
-if (~document.location.href.search('ag300')) {
+if (~document.location.href.search('ag300_01')) {
     document.getElementsByClassName('button')[0].setAttribute('onclick', 'send_onclick();');
+    
+    add_function(ag300_send_onclick + ag300_reload + ag222_go_next, 'ag300'); // 開課課表
 }
-add_function(ag300_send_onclick, 'ag300'); // 開課課表
+add_function(ag300_send_onclick + ag300_reload + ag222_go_next, 'ag300'); // 開課課表
 
 
-add_function(ag300_reload, 'ag300'); // 開課課表 
+
 add_function(ag304_go_next, 'ag304'); // 班級課表
-//add_function(ag222_go_next, 'ag304'); // 班級課表-教學綱要
-add_function(ag402_reload, 'ag402'); // 班級人數
-add_function(ag402_qry, 'ag402'); // 班級人數
+add_function(ag402_reload + ag402_qry, 'ag402'); // 班級人數
 
 add_function(ag222_switch_yms, 'ak002_01'); // 學生個人缺曠請假明細表
 add_function(ag222_switch_yms, 'ak010'); // 學生個人獎懲狀況明細表
@@ -115,11 +112,9 @@ add_function(bk0015_go_next_onclick, 'bk001_z20');
 
 // BK001 photo
 if (~document.location.href.search('bk001_pic')) {
-    alert("IN");
     document.getElemetnById('btn_upload').setAttribute('onclick', 'upload_onclick();');
 }
-add_function(bk001_pic_photo_display, 'bk001_pic', true);
-add_function(bk001_pic_update, 'bk001_pic');
+add_function(bk001_pic_photo_display + bk001_pic_update, 'bk001_pic');
 
 // CK001 (紙本作業)學生請假作業
 if (~document.location.href.search('ck001_00')) {
@@ -127,14 +122,11 @@ if (~document.location.href.search('ck001_00')) {
 }
 add_function(ck001_confirm, 'ck001_00'); //	(紙本作業)學生請假作業
 
-add_function(ck002_go_next, 'ck002'); // 機車通行證
-add_function(ck002_go_print, 'ck002'); // 機車通行證
-add_function(ck002_go_next, 'ck003'); // 腳踏車通行證
-add_function(ck003_go_print, 'ck003'); // 腳踏車通行證
+add_function(ck002_go_next + ck002_go_print, 'ck002'); // 機車通行證
+add_function(ck002_go_next + ck003_go_print, 'ck003'); // 腳踏車通行證
 
 // Untest function
-add_function(ag450_reload, 'ag450'); //未考試教室
-add_function(go_qry, 'ag450');
+add_function(ag450_reload + ag450_go_qry, 'ag450'); //未考試教室
 
 
 /*
