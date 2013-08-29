@@ -8,6 +8,11 @@
 // @author          Louie Lu (grapherd at gmail dot com)
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
+// @grant           GM_xmlhttpRequest
+// @grant           GM_getValue
+// @grant           GM_setValue
+// @grant           GM_openInTab
+// @grant           GM_registerMenuCommand
 // ==/UserScript==
 
 
