@@ -36,7 +36,7 @@ DO LIST
 
   【學生】個人課表        OK, ag222_go_next
 
-  【教師】開課課表        !Half, 教學綱要
+  【教師】開課課表        OK, ag300_send_onclick, ag300_reload, ag222_go_next
 
   【系所】教室課表        OK, ag222_go_next
 
