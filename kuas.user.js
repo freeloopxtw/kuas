@@ -4,7 +4,7 @@
 // @description	    fix every vbscript and no need IE anymore.
 // @include         http://140.127.113.231/kuas/*
 // @include         http://140.127.113.231/kuas/system/*
-// @version         1.3
+// @version         1.3.1
 // @author          Louie Lu (grapherd at gmail dot com)
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
@@ -77,10 +77,12 @@ add_function(send_pwd, 'sys010_chang');
 add_function(change_pwd, 'f_head');
 add_function(relogin, 'f_head');
 add_function(of_display, 'f_left.jsp'); // 側邊欄
-add_function(ag222_switch_yms, 'ag222.jsp'); // 學期成績
+add_function(ag222_switch_yms, 'ag008.jsp'); // 學期成績
+add_function(ag222_switch_yms, 'ag222.jsp'); // 個人課表
 add_function(ag222_go_next, 'ag222.jsp'); // 個人課表
 add_function(ag222_go_next, 'ag302'); // 教室課表
-add_function(ag112_go_next, 'ag112_01.jsp'); // 開課資訊 
+add_function(ag112_go_next, 'ag112_01.jsp'); // 開課資訊
+add_function(ag222_switch_yms, 'ag112_01.jsp'); // 開課資訊 
 add_function(ag201_go_next, 'ag201.jsp'); // 課程規劃表
 
 if (~document.location.href.search('ag300')) {
@@ -136,6 +138,10 @@ add_function(go_qry, 'ag450');
 
 
 /*
+ * PRIORITY:
+ * 
+ *
+ *
  * DO LIST:
  *  修改密碼
  *  登出
