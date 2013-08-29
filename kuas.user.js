@@ -4,7 +4,7 @@
 // @description	    fix every vbscript and no need IE anymore.
 // @include         http://140.127.113.231/kuas/*
 // @include         http://140.127.113.231/kuas/system/*
-// @version         1.4.0
+// @version         1.4.1
 // @author          Louie Lu (grapherd at gmail dot com)
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
@@ -29,7 +29,7 @@ var ag304_go_next = 'function go_next(s1,s2,s3){if(typeof s2=="undefined"&&typeo
 var ag402_reload = 'function reload(s){thisform.action="ag402_01.jsp";thisform.submit()}';
 var ag402_qry = 'function qry(s){if(s=="Y"){if(thisform.emut_kind.value=="dgr"){if(thisform.etxt_list.value!="%"){thisform.action="ag402_02_1.jsp"}else{thisform.action="ag402_02_2.jsp"}}else{thisform.action="ag402_02_3.jsp"}thisform.submit()}}';
 var ag450_reload = 'function reload(){thisform.action="ag450_01.jsp";thisform.target="top";thisform.submit()}';
-var ag450_go_qry = 'function go_qry(){svalue=[thisform.exditem.value,thisform.examdate.value,thisform.exd_prd.value,thisform.division.value,thisform.romkid.value].join("*$*");thisform.content.value=svalue;thisform.action="ag450_03.jsp";thisform.submit()}';
+var ag450_go_qry = 'function go_query(){svalue=[thisform.exditem.value,thisform.examdate.value,thisform.exd_prd.value,thisform.division.value,thisform.romkid.value].join("*$*");thisform.content.value=svalue;thisform.action="ag450_03.jsp";thisform.submit()}';
 
 var bk001_go_next = 'function go_next(s){thisform.action=s;thisform.submit()}';
 var bk0013_go_next_onclick = 'function go_next_onclick(){thisform.action="bk001_4.jsp";thisform.submit()}';

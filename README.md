@@ -42,9 +42,9 @@ DO LIST
 
   【系所】班級課表        OK, ag304_go_next, ag222_go_next
 
-  【系所】班級人數        OK
+  【系所】班級人數        OK, ag402
 
-   未考試教室查詢         Untest, ag450
+   未考試教室查詢         OK, ag450
 
   【學生】通識課程查詢      OK, original done
 
