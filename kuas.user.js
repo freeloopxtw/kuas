@@ -4,7 +4,7 @@
 // @description	    fix every vbscript and no need IE anymore.
 // @include         http://140.127.113.231/kuas/*
 // @include         http://140.127.113.231/kuas/system/*
-// @version         1.3.1
+// @version         1.3.2
 // @author          Louie Lu (grapherd at gmail dot com)
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
@@ -139,7 +139,7 @@ add_function(go_qry, 'ag450');
 
 /*
  * PRIORITY:
- * 
+ *   學生基本資料表 
  *
  *
  * DO LIST:
