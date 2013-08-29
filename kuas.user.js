@@ -4,7 +4,7 @@
 // @description	    fix every vbscript and no need IE anymore.
 // @include         http://140.127.113.231/kuas/*
 // @include         http://140.127.113.231/kuas/system/*
-// @version         1.4.1
+// @version         1.4.11
 // @author          Louie Lu (grapherd at gmail dot com)
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
