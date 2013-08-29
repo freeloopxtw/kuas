@@ -57,6 +57,7 @@ DO LIST
   可修學程建議查詢        NO DATA
   
  * 學務資訊查詢:
+
     班級名單(紙本列印)         No premission
 
     學生個人缺曠請假明細表      OK
