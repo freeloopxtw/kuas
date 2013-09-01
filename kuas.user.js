@@ -2,12 +2,14 @@
 // @name            KUAS Enhanced Mod
 // @namespace	    http://www.grd.idv.tw/about
 // @description	    fix every vbscript and no need IE anymore.
-// @include         http://140.127.113.231/kuas/*
-// @include         http://140.127.113.231/kuas/system/*
-// @version         1.4.11
+// @include         http://140.127.113.*/kuas/*
+// @include         http://140.127.113.*/kuas/system/*
+// @version         1.5.0
 // @author          Louie Lu (grapherd at gmail dot com)
+// @require         http://update.sizzlemctwizzle.com/176759.js?uso
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
+// @grant           GM_info
 // @grant           GM_xmlhttpRequest
 // @grant           GM_getValue
 // @grant           GM_setValue
@@ -15,9 +17,15 @@
 // @grant           GM_registerMenuCommand
 // ==/UserScript==
 
+//== Update Log ==
+// 1.5.0:
+//    update 學雜費列印
+//    fix server problem (not only 231, 227...etc)
+//
 
-var SUC_script_num = 176759; // Change this to the number given to the script by userscripts.org (check the address bar)
-try{function updateCheck(forced){if ((forced) || (parseInt(GM_getValue('SUC_last_update', '0')) + 86400000 <= (new Date().getTime()))){try{GM_xmlhttpRequest({method: 'GET',url: 'http://userscripts.org/scripts/source/'+SUC_script_num+'.meta.js?'+new Date().getTime(),headers: {'Cache-Control': 'no-cache'},onload: function(resp){var local_version, remote_version, rt, script_name;rt=resp.responseText;GM_setValue('SUC_last_update', new Date().getTime()+'');remote_version=parseInt(/@uso:version\s*(.*?)\s*$/m.exec(rt)[1]);local_version=parseInt(GM_getValue('SUC_current_version', '-1'));if(local_version!=-1){script_name = (/@name\s*(.*?)\s*$/m.exec(rt))[1];GM_setValue('SUC_target_script_name', script_name);if (remote_version > local_version){if(confirm('There is an update available for the Greasemonkey script "'+script_name+'."\nWould you like to go to the install page now?')){GM_openInTab('http://userscripts.org/scripts/show/'+SUC_script_num);GM_setValue('SUC_current_version', remote_version);}}else if (forced)alert('No update is available for "'+script_name+'."');}else GM_setValue('SUC_current_version', remote_version+'');}});}catch (err){if (forced)alert('An error occurred while checking for updates:\n'+err);}}}GM_registerMenuCommand(GM_getValue('SUC_target_script_name', '???') + ' - Manual Update Check', function(){updateCheck(true);});updateCheck(false);}catch(err){}
+
+//var SUC_script_num = 176759; // Change this to the number given to the script by userscripts.org (check the address bar)
+//try{function updateCheck(forced){if ((forced) || (parseInt(GM_getValue('SUC_last_update', '0')) + 86400000 <= (new Date().getTime()))){try{GM_xmlhttpRequest({method: 'GET',url: 'http://userscripts.org/scripts/source/'+SUC_script_num+'.meta.js?'+new Date().getTime(),headers: {'Cache-Control': 'no-cache'},onload: function(resp){var local_version, remote_version, rt, script_name;rt=resp.responseText;GM_setValue('SUC_last_update', new Date().getTime()+'');remote_version=parseInt(/@uso:version\s*(.*?)\s*$/m.exec(rt)[1]);local_version=parseInt(GM_getValue('SUC_current_version', '-1'));if(local_version!=-1){script_name = (/@name\s*(.*?)\s*$/m.exec(rt))[1];GM_setValue('SUC_target_script_name', script_name);if (remote_version > local_version){if(confirm('There is an update available for the Greasemonkey script "'+script_name+'."\nWould you like to go to the install page now?')){GM_openInTab('http://userscripts.org/scripts/show/'+SUC_script_num);GM_setValue('SUC_current_version', remote_version);}}else if (forced)alert('No update is available for "'+script_name+'."');}else GM_setValue('SUC_current_version', remote_version+'');}});}catch (err){if (forced)alert('An error occurred while checking for updates:\n'+err);}}}GM_registerMenuCommand(GM_getValue('SUC_target_script_name', '???') + ' - Manual Update Check', function(){updateCheck(true);});updateCheck(false);}catch(err){}
 
 
 var change_pwd = 'function change_pwd_onclick(){thisform.action="system/sys010_changepwd.jsp";thisform.submit()}';
@@ -35,6 +43,11 @@ var ag402_reload = 'function reload(s){thisform.action="ag402_01.jsp";thisform.s
 var ag402_qry = 'function qry(s){if(s=="Y"){if(thisform.emut_kind.value=="dgr"){if(thisform.etxt_list.value!="%"){thisform.action="ag402_02_1.jsp"}else{thisform.action="ag402_02_2.jsp"}}else{thisform.action="ag402_02_3.jsp"}thisform.submit()}}';
 var ag450_reload = 'function reload(){thisform.action="ag450_01.jsp";thisform.target="top";thisform.submit()}';
 var ag450_go_qry = 'function go_query(){svalue=[thisform.exditem.value,thisform.examdate.value,thisform.exd_prd.value,thisform.division.value,thisform.romkid.value].join("*$*");thisform.content.value=svalue;thisform.action="ag450_03.jsp";thisform.submit()}';
+
+var ay100_go_next = 'function go_next(s1,s2){thisform.ls_apyno.value=s1;thisform.ls_trnno.value=s2;thisform.submit()}';
+var ay100_go_selclick = 'function go_selclick(s1,s2,s3,s4,s5,s6){frm1.ls_syear.value=s1;frm1.ls_ssms.value=s2;frm1.ls_serlno.value=s3;frm1.ls_clsid.value=s4;frm1.ls_dgrid.value=s5;frm1.ls_untid.value=s6;frm1.ebtn_goprt.disabled=false}';
+var ay100_go_print = 'function go_print(){frm1.action="ay100_pdf.jsp";frm1.submit()}';
+var ay101_go_print = 'function go_print(){frm1.action="ay101_pdf.jsp";frm1.submit()}';
 
 var bk001_go_next = 'function go_next(s){thisform.action=s;thisform.submit()}';
 var bk0013_go_next_onclick = 'function go_next_onclick(){thisform.action="bk001_4.jsp";thisform.submit()}';
@@ -101,6 +114,8 @@ add_function(ag402_reload + ag402_qry, 'ag402'); // 班級人數
 
 add_function(ag222_switch_yms, 'ak002_01'); // 學生個人缺曠請假明細表
 add_function(ag222_switch_yms, 'ak010'); // 學生個人獎懲狀況明細表
+add_function(ay100_go_next + ay100_go_selclick + ay100_go_print, 'ay100'); // 學雜費列印
+add_function(ay100_go_selclick + ay101_go_print, 'ay101');
 
 // BK001 function //個人資料登入
 if (~document.location.href.search('bk001_3')) {
