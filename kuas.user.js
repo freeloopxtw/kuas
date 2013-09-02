@@ -18,6 +18,8 @@
 // ==/UserScript==
 
 //== Update Log ==
+// 1.5.1:
+//    修改密碼的新密碼改為 password(非明碼顯示)
 // 1.5.0:
 //    update 學雜費列印
 //    fix server problem (not only 231, 227...etc)
@@ -88,6 +90,7 @@ if (~document.location.href.search('f_head')) {
 }
 if (~document.location.href.search('sys010_chang')) {
     document.getElementById('sent').setAttribute('onclick', 'send_pwd();');
+    document.getElementById('opwd').setAttribute('type', 'password');
 }
 
 add_function(send_pwd, 'sys010_chang');
