@@ -4,9 +4,9 @@
 // @description	    fix every vbscript and no need IE anymore.
 // @include         http://140.127.113.*/kuas/*
 // @include         http://140.127.113.*/kuas/system/*
-// @version         1.5.1
+// @version         1.5.2
 // @author          Louie Lu (grapherd at gmail dot com)
-// @require         http://update.sizzlemctwizzle.com/176759.js?uso
+// require         http://update.sizzlemctwizzle.com/176759.js?uso
 // @updateURL       http://userscripts.org/scripts/source/176759.user.js
 // @downloadURL     http://userscripts.org/scripts/source/176759.user.js
 // @grant           GM_info
@@ -18,6 +18,8 @@
 // ==/UserScript==
 
 //== Update Log ==
+// 1.5.2:
+//    個人課表老師名子處加上大頭照, 目前僅有資工系教師
 // 1.5.1:
 //    修改密碼的新密碼改為 password(非明碼顯示)
 // 1.5.0:
@@ -57,7 +59,7 @@ var bk0014_go_next_onclick = 'function go_next_onclick(){thisform2.action="bk001
 var bk0015_go_next_onclick = 'function go_next_onclick(){thisform2.action="bk001_17.jsp";thisform2.target="Main";thisform2.submit();}';
 var bk001_pic_photo_display = 'function photo_display(){thisform.enctype="application/x-www-form-urlencoded";thisform.action="bk001_pic_02.jsp";thisform.submit()}';
 var bk001_pic_update = 'function upload_onclick(){if(!thisform.file_name.value){alert("檔名不可空白, 請先選擇檔案！");return 0}s1=thisform.file_name.value.trim();thisform.action="bk001_pic_01.jsp";thisform.enctype="multipart/form-data";thisform.submit()}';
-
+var bk009_01 = 'function on_forward(ls_uniid) {thisform.uni_id.value = ls_uniid;thisform.action="bk009_02.jsp";thisform.submit();}'
 
 var ck001_confirm = 'function confirm_onclick(){form1.confirm.disabled=true;form1.submit()}';
 var ck002_go_next = 'function go_next(s){thisform.cba_district.value=s;thisform.submit()}';
@@ -103,6 +105,34 @@ add_function(ag222_switch_yms + ag222_go_next, 'ag222.jsp'); // 個人課表
 add_function(ag222_go_next, 'ag302'); // 教室課表
 add_function(ag201_go_next, 'ag201.jsp'); // 課程規劃表
 
+// 為老師名子加上圖片
+var teacher = {"張雲龍": "http://www.csie.kuas.edu.tw/fac_image/wlchang.jpg",
+  "陳昭和": "http://www.csie.kuas.edu.tw/fac_image/thchen.jpg",
+  "羅孟彥": "",
+  "林威成": "http://www.csie.kuas.edu.tw/fac_image/linwc.jpg",
+  "張道行": "http://www.csie.kuas.edu.tw/fac_image/thc.jpg",
+  "王志強": "http://www.csie.kuas.edu.tw/fac_image/ccw.jpg",
+  "蕭淳元": "http://www.csie.kuas.edu.tw/fac_image/cyhsiao.jpg",
+  "陳洳瑾": "http://www.csie.kuas.edu.tw/fac_image/jcchen.jpg",
+  "楊孟翰": "http://www.csie.kuas.edu.tw/fac_image/menghanyang.jpg",
+  "鐘文鈺": "http://www.csie.kuas.edu.tw/fac_image/wychung.jpg"
+}
+
+var teacher_key = Object.keys(teacher)
+
+if (~document.location.href.search("ag222")) {
+    console.log("IN");
+    td = document.getElementsByTagName("td");
+    for (var i=0; i < td.length; ++i) {
+        for (var j=0; j < teacher_key.length; ++j) {
+            if (~td[i].innerHTML.search(teacher_key[j])) {
+                td[i].innerHTML += "<img src='" + teacher[teacher_key[j]] + "'></img>";
+            }
+        }
+    }            
+}
+
+
 if (~document.location.href.search('ag300_01')) {
     document.getElementsByClassName('button')[0].setAttribute('onclick', 'send_onclick();');
     
@@ -132,6 +162,7 @@ add_function(bk001_go_next, 'bk001.jsp');
 add_function(bk0013_go_next_onclick, 'bk001_3');
 add_function(bk0014_go_next_onclick, 'bk001_4');
 add_function(bk0015_go_next_onclick, 'bk001_z20');
+add_function(bk009_01, 'bk009');
 
 // BK001 photo
 if (~document.location.href.search('bk001_pic')) {
